@@ -40,6 +40,25 @@ Adecuar un proyecto no significa reestructurarlo. Proyecto aprende y valida una 
 
 Proyecto conserva archivos existentes y sólo integra el contrato necesario. No reemplaza indiscriminadamente `AGENTS.md` ni `CONTEXT.md`.
 
+## Directorio de trabajo
+
+Actualmente, Proyecto utiliza `C:\\dev` como directorio raíz para los proyectos administrados por el CLI.
+
+Este directorio debe existir previamente en el sistema y, por el momento, debe crearse manualmente si aún no está disponible:
+
+```powershell
+New-Item -ItemType Directory -Path C:\dev
+```
+
+Los proyectos creados o administrados por Proyecto se ubican bajo esta raíz. Por ejemplo:
+
+```text
+C:\dev\mi-proyecto
+C:\dev\otro-proyecto
+```
+
+En la versión actual (`v0.2.2`), la detección, creación y configuración automática de un directorio raíz alternativo todavía no forman parte del CLI.
+
 ## CLI
 
 ```text
@@ -156,6 +175,7 @@ Las plantillas operativas están redactadas en español. Los nombres técnicos e
 
 ## Pendientes conocidos
 
+- Permitir configurar el directorio raíz de proyectos y gestionar su creación durante la instalación.
 - Implementar tolerancia controlada a errores humanos de escritura en nombres de componentes y Skills cuando la coincidencia sea inequívoca.
 - Revisar la separación definitiva de responsabilidades entre `add` y `actualiza` para evitar lógica duplicada.
 - Revisar `actualiza` heredado antes de ampliar su uso en nuevos proyectos.
