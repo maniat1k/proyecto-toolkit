@@ -1,0 +1,32 @@
+# Secretos y configuracion local
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editores y entorno local
+.vscode/
+.idea/
+
+# Logs y salidas temporales
+*.log
+logs/
+tmp/
+temp/
+
+# Archivos temporales y backups
+*~
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+

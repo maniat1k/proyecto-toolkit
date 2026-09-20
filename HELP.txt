@@ -1,0 +1,37 @@
+Proyecto CLI v0.2.2
+
+Uso:
+  proyecto <comando> [argumentos]
+
+Comandos:
+  install                              Registra proyecto en el PATH del usuario.
+  uninstall                            Quita proyecto del PATH. No elimina el toolkit.
+  init <proyecto>                      Crea un proyecto nuevo con el nucleo Proyecto.
+  valida <proyecto>                    Valida el proyecto contra su contrato Proyecto.
+  list                                 Lista componentes y Skills disponibles.
+  add <proyecto> <componente|skill>    Agrega un componente o Skill al proyecto.
+  prompt <proyecto>                    Genera un prompt de adecuacion. No modifica el proyecto.
+  actualiza <proyecto>                 Registra la adecuacion aprobada en el contrato.
+
+Componentes disponibles:
+  agents                               Garantiza AGENTS.md y su integracion con CONTEXT.md.
+  context                              Garantiza CONTEXT.md y su integracion con AGENTS.md.
+  gitignore                            Agrega .gitignore desde la plantilla Proyecto.
+
+Flujo recomendado:
+  proyecto valida <proyecto>
+
+  Si faltan componentes conocidos:
+    proyecto list
+    proyecto add <proyecto> <componente>
+    proyecto valida <proyecto>
+
+  Si quedan elementos que requieren adecuacion:
+    proyecto prompt <proyecto>
+    revisar adecuacion.md
+    proyecto actualiza <proyecto>
+    proyecto valida <proyecto>
+
+Ayuda:
+  proyecto -h
+
