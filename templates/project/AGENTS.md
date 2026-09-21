@@ -29,6 +29,25 @@ Todo agente que trabaje en este proyecto debe:
 
 `CONTEXT.md` no sustituye la inspección del proyecto ni la evidencia técnica. Si su contenido contradice evidencia actual, debe señalarse y verificarse antes de utilizarlo como hecho.
 
+## Bootstrap inicial de contexto
+
+Cuando `CONTEXT.md` indique `PENDIENTE` o todavía contenga únicamente la plantilla inicial, realiza un bootstrap antes de trabajo relevante:
+
+1. Inspecciona primero el repositorio y obtiene automáticamente todo lo que pueda verificarse.
+2. No preguntes al usuario información que pueda deducirse con evidencia suficiente.
+3. Realiza una entrevista adaptativa de **hasta 10 preguntas**.
+4. Formula **una sola pregunta por vez** y espera la respuesta antes de decidir la siguiente.
+5. Las preguntas deben cerrar únicamente vacíos relevantes: objetivo, usuarios, arquitectura, stack, ambientes, restricciones, límites de cambio, flujo operativo, estado, riesgos y Definition of Done.
+6. Finaliza antes de diez preguntas si ya existe contexto suficiente.
+7. Resume lo entendido y solicita confirmación humana antes de convertir respuestas en decisiones persistentes.
+8. Registra hechos, decisiones, estado y continuidad en `CONTEXT.md`.
+9. Propón cambios en `AGENTS.md` únicamente cuando la entrevista revele reglas operativas estables del proyecto.
+10. Marca el bootstrap como `COMPLETADO` sólo después de la confirmación.
+
+No reinicies la entrevista completa en sesiones posteriores. Si aparece una contradicción o falta información, realiza únicamente las preguntas puntuales necesarias.
+
+El bootstrap sirve para invertir razonamiento al comienzo y reutilizar después el contexto persistido, evitando reconstruir el proyecto en cada conversación.
+
 ## Antes de realizar cambios
 
 Para cambios relevantes, indica brevemente:
