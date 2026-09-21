@@ -28,6 +28,7 @@ Flujo recomendado:
 
   Si quedan elementos que requieren adecuacion:
     proyecto prompt <proyecto>
+proyecto bootstrap <proyecto>
     revisar adecuacion.md
     proyecto actualiza <proyecto>
     proyecto valida <proyecto>
@@ -35,3 +36,8 @@ Flujo recomendado:
 Ayuda:
   proyecto -h
 
+
+BOOTSTRAP
+  Genera el prompt para la entrevista inicial adaptativa de contexto.
+  Inspeccionar primero; maximo 10 preguntas, siempre una por vez.
+  No vuelve a iniciarse automaticamente si CONTEXT.md indica COMPLETADO.
