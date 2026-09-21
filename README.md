@@ -95,6 +95,51 @@ diagnostico-entorno
 
 Las Skills se instalan bajo `.agents/skills` únicamente cuando el proyecto las necesita.
 
+## Wiki técnica y línea de investigación
+
+El `README.md` funciona como índice operativo del proyecto. Las decisiones, investigaciones y diseños extensos se mantienen en `docs/` para conservar trazabilidad sin convertir el README en documentación monolítica.
+
+### Skill Supply Chain
+
+Proyecto está evaluando una evolución desde un catálogo de Skills exclusivamente propias hacia un modelo de **descubrimiento, evaluación, adopción y adaptación controlada de Agent Skills existentes**.
+
+Principio propuesto:
+
+```text
+necesidad
+  ↓
+buscar Skill existente
+  ↓
+evaluar compatibilidad + licencia + seguridad + calidad
+  ↓
+stage + tests
+  ↓
+adoptar / adaptar / crear sólo si no existe alternativa adecuada
+  ↓
+registrar procedencia + versión + integridad
+  ↓
+Git
+```
+
+El objetivo es reutilizar capacidades del ecosistema sin perder control técnico ni trazabilidad. Una Skill podrá clasificarse como **PROPIA**, **ADOPTADA**, **ADAPTADA** o **DERIVADA**.
+
+La investigación actual toma **Agent Skills / `SKILL.md`** como candidato a formato canónico interno, buscando portabilidad entre GitHub Copilot, OpenAI Codex y agentes/harnesses locales. Ollama se considera principalmente un runtime/proveedor de modelos y no un catálogo de Skills.
+
+La incorporación de Skills externas deberá conservar, según corresponda, URL y repositorio de origen, path original, commit/tag inmutable, licencia, atribuciones, fecha de importación, modificaciones locales y evidencia de revisión. Se estudian como extensiones propias `SOURCE.md`, `skills.lock.yaml`, pruebas y niveles de riesgo para recursos ejecutables.
+
+**Documento de referencia:** [Investigación: Skill Supply Chain](docs/investigacion-skill-supply-chain.md)
+
+Fuentes de referencia principales:
+
+- [Agent Skills Specification](https://agentskills.io/specification)
+- [GitHub Awesome Copilot](https://github.com/github/awesome-copilot)
+- [Anthropic Skills](https://github.com/anthropics/skills)
+- [Hugging Face Skills](https://github.com/huggingface/skills)
+- [OpenAI Codex Skills](https://developers.openai.com/codex/skills)
+- [Ollama](https://ollama.com/)
+
+> **Estado:** línea de investigación y arquitectura candidata. No implica que Proyecto v0.2.2 ya implemente importación, auditoría o actualización de Skills externas.
+
 ## Estados de validación
 
 - **VALIDO**: no existen faltantes ni elementos pendientes de adecuación.
@@ -179,7 +224,7 @@ Las plantillas operativas están redactadas en español. Los nombres técnicos e
 - Implementar tolerancia controlada a errores humanos de escritura en nombres de componentes y Skills cuando la coincidencia sea inequívoca.
 - Revisar la separación definitiva de responsabilidades entre `add` y `actualiza` para evitar lógica duplicada.
 - Revisar `actualiza` heredado antes de ampliar su uso en nuevos proyectos.
-- Continuar desarrollando el catálogo de Skills reutilizables.
+- Evolucionar el catálogo de Skills hacia un modelo de Skill Supply Chain: buscar, evaluar, adoptar/adaptar y crear sólo cuando sea necesario.
 - Añadir scripts determinísticos a `diagnostico-entorno`.
 - Ampliar pruebas automatizadas del CLI.
 - Evaluar contratos aportados por Skills como parte del contrato efectivo del proyecto.
