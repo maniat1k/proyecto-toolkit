@@ -70,6 +70,7 @@ proyecto valida <proyecto>
 proyecto list
 proyecto add <proyecto> <componente|skill>
 proyecto prompt <proyecto>
+proyecto bootstrap <proyecto>
 proyecto actualiza <proyecto>
 ```
 
@@ -98,6 +99,16 @@ Las Skills se instalan bajo `.agents/skills` únicamente cuando el proyecto las 
 ## Wiki técnica y línea de investigación
 
 El `README.md` funciona como índice operativo del proyecto. Las decisiones, investigaciones y diseños extensos se mantienen en `docs/` para conservar trazabilidad sin convertir el README en documentación monolítica.
+
+### Bootstrap inicial de contexto
+
+Proyecto incorpora un bootstrap para la primera interacción relevante con IA: el agente inspecciona primero el repositorio y, sólo para cubrir vacíos, realiza una entrevista adaptativa de **hasta 10 preguntas, siempre una por vez**. Puede terminar antes cuando ya exista contexto suficiente.
+
+Tras una síntesis y confirmación humana, el conocimiento se consolida principalmente en `CONTEXT.md`; sólo las reglas operativas estables se proponen para `AGENTS.md`. El estado `PENDIENTE | COMPLETADO` evita repetir la entrevista en sesiones posteriores.
+
+El comando `proyecto bootstrap <proyecto>` genera el prompt para iniciar este procedimiento. Su validación end-to-end local queda pendiente.
+
+**Documento de referencia:** [Bootstrap inicial de contexto](docs/bootstrap-contexto.md)
 
 ### Skill Supply Chain
 
@@ -217,6 +228,7 @@ Las plantillas operativas están redactadas en español. Los nombres técnicos e
 - `CONTEXT.md` es una convención operativa de Proyecto.
 - Las Skills reutilizables utilizan `.agents/skills`.
 - Las correcciones determinísticas deben realizarse antes de consumir IA.
+- El bootstrap inicial inspecciona antes de preguntar y limita la entrevista a un máximo de 10 preguntas, una por vez.
 
 ## Pendientes conocidos
 
@@ -243,6 +255,8 @@ Las plantillas operativas están redactadas en español. Los nombres técnicos e
 10. evidencia-documentacion-tecnica
 
 ## Última actualización
+
+2026-09-21 - Incorporado bootstrap conversacional inicial; validación local pendiente.
 
 2026-09-19 - Cierre y promoción de Proyecto v0.2.2.
 
