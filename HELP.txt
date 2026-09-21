@@ -7,7 +7,7 @@ Comandos:
   install                              Registra proyecto en el PATH del usuario.
   uninstall                            Quita proyecto del PATH. No elimina el toolkit.
   init <proyecto>                      Crea un proyecto nuevo con el nucleo Proyecto.
-  valida <proyecto>                    Valida el proyecto contra su contrato Proyecto.
+  valida <proyecto>                    Inicializa contexto si es necesario y valida el proyecto.
   list                                 Lista componentes y Skills disponibles.
   add <proyecto> <componente|skill>    Agrega un componente o Skill al proyecto.
   prompt <proyecto>                    Genera un prompt de adecuacion. No modifica el proyecto.
@@ -20,6 +20,7 @@ Componentes disponibles:
 
 Flujo recomendado:
   proyecto valida <proyecto>
+  La primera ejecución puede iniciar automáticamente la entrevista de contexto.
 
   Si faltan componentes conocidos:
     proyecto list
@@ -28,7 +29,6 @@ Flujo recomendado:
 
   Si quedan elementos que requieren adecuacion:
     proyecto prompt <proyecto>
-proyecto bootstrap <proyecto>
     revisar adecuacion.md
     proyecto actualiza <proyecto>
     proyecto valida <proyecto>
@@ -36,8 +36,3 @@ proyecto bootstrap <proyecto>
 Ayuda:
   proyecto -h
 
-
-BOOTSTRAP
-  Genera el prompt para la entrevista inicial adaptativa de contexto.
-  Inspeccionar primero; maximo 10 preguntas, siempre una por vez.
-  No vuelve a iniciarse automaticamente si CONTEXT.md indica COMPLETADO.
