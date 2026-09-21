@@ -1,5 +1,14 @@
 # Contexto del proyecto
 
+## Bootstrap
+
+**Estado:** PENDIENTE
+
+Estados permitidos: `PENDIENTE` | `COMPLETADO`
+
+Cuando esté `PENDIENTE`, el agente debe inspeccionar primero el repositorio y luego completar, si hace falta, una entrevista adaptativa de hasta 10 preguntas, siempre una por vez. Tras la confirmación humana, debe consolidar lo aprendido en este archivo y cambiar el estado a `COMPLETADO`.
+
+
 ## Objetivo actual
 
 Describe el objetivo operativo actual del proyecto.
