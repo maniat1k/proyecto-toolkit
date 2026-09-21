@@ -70,7 +70,6 @@ proyecto valida <proyecto>
 proyecto list
 proyecto add <proyecto> <componente|skill>
 proyecto prompt <proyecto>
-proyecto bootstrap <proyecto>
 proyecto actualiza <proyecto>
 ```
 
@@ -106,7 +105,7 @@ Proyecto incorpora un bootstrap para la primera interacción relevante con IA: e
 
 Tras una síntesis y confirmación humana, el conocimiento se consolida principalmente en `CONTEXT.md`; sólo las reglas operativas estables se proponen para `AGENTS.md`. El estado `PENDIENTE | COMPLETADO` evita repetir la entrevista en sesiones posteriores.
 
-El comando `proyecto bootstrap <proyecto>` genera el prompt para iniciar este procedimiento. Su validación end-to-end local queda pendiente.
+El bootstrap no expone un comando adicional. En la primera ejecución de `proyecto valida <proyecto>`, si `CONTEXT.md` continúa en estado `PENDIENTE`, Proyecto activa internamente la entrevista. Una vez confirmado y marcado `COMPLETADO`, las siguientes ejecuciones de `valida` continúan directamente con la validación normal. Su validación end-to-end local queda pendiente.
 
 **Documento de referencia:** [Bootstrap inicial de contexto](docs/bootstrap-contexto.md)
 
@@ -163,6 +162,10 @@ Los elementos `EXTRA` no se consideran incorrectos automáticamente. Son element
 
 ```text
 valida
+  ↓
+si bootstrap PENDIENTE → inspección + entrevista inicial + confirmación
+  ↓
+validación normal
   ↓
 resolver faltantes determinísticos con add
   ↓
@@ -228,7 +231,7 @@ Las plantillas operativas están redactadas en español. Los nombres técnicos e
 - `CONTEXT.md` es una convención operativa de Proyecto.
 - Las Skills reutilizables utilizan `.agents/skills`.
 - Las correcciones determinísticas deben realizarse antes de consumir IA.
-- El bootstrap inicial inspecciona antes de preguntar y limita la entrevista a un máximo de 10 preguntas, una por vez.
+- El bootstrap inicial es una fase interna de `valida`: inspecciona antes de preguntar, limita la entrevista a un máximo de 10 preguntas, una por vez, y deja de ejecutarse al quedar `COMPLETADO`.
 
 ## Pendientes conocidos
 
