@@ -39,6 +39,8 @@ Las reglas estables que afecten a cualquier agente pueden proponerse para `AGENT
 
 ## CLI
 
-`proyecto bootstrap <proyecto>` genera el prompt contextual para iniciar el procedimiento con una IA. El CLI no intenta realizar la entrevista: prepara la información y deja el razonamiento conversacional al agente.
+El bootstrap no es un comando público. `proyecto valida <proyecto>` comprueba el estado de `CONTEXT.md`: si el contexto inicial sigue `PENDIENTE`, activa internamente el prompt de bootstrap; si figura `COMPLETADO`, continúa directamente con la validación normal.
+
+De este modo, el usuario expresa una sola intención —validar el proyecto— y Proyecto decide internamente si antes necesita completar el contexto.
 
 La validación end-to-end en un entorno local queda pendiente hasta ejecutar la nueva versión del CLI sobre un proyecto real.
