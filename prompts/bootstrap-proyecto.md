@@ -27,6 +27,16 @@ Cuando tengas contexto suficiente:
 - propone qué debe persistirse en CONTEXT.md;
 - propone cambios en AGENTS.md sólo si surgieron reglas operativas estables;
 - solicita confirmación humana antes de persistir esas conclusiones;
-- tras confirmación, marca Bootstrap como COMPLETADO.
+- tras la confirmación humana, conserva o crea en CONTEXT.md el siguiente marcador estructurado requerido por Proyecto:
+
+  ```markdown
+  ## Bootstrap
+
+  **Estado:** COMPLETADO
+  ```
+
+- no sustituyas `**Estado:** COMPLETADO` por una frase narrativa equivalente;
+- si ya existe `## Bootstrap` con `**Estado:** PENDIENTE`, actualiza ese estado a `COMPLETADO`;
+- preserva el resto del contexto consolidado en CONTEXT.md.
 
 No reinicies un bootstrap ya COMPLETADO salvo solicitud explícita. Para vacíos posteriores, pregunta únicamente lo necesario.
