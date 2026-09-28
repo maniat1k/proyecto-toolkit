@@ -30,3 +30,6 @@ temp/
 .DS_Store
 Thumbs.db
 
+
+# Estado local aprendido por Proyecto
+/projects/
