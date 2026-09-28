@@ -8,10 +8,18 @@ Comandos:
   uninstall                            Quita proyecto del PATH. No elimina el toolkit.
   init <proyecto>                      Crea un proyecto nuevo con el nucleo Proyecto.
   valida <proyecto>                    Inicializa contexto si es necesario y valida el proyecto.
-  list                                 Lista componentes y Skills disponibles.
-  add <proyecto> <componente|skill>    Agrega un componente o Skill al proyecto.
+  list                                 Lista componentes y Skills disponibles localmente.
+  add <proyecto> <componente|skill>    Agrega un componente o Skill local al proyecto.
+  skill search <consulta>              Busca Agent Skills existentes en catalogos externos.
   prompt <proyecto>                    Genera un prompt de adecuacion. No modifica el proyecto.
-  actualiza <proyecto>                 Registra la adecuacion aprobada en el contrato.
+  actualiza <proyecto>                 Registra decisiones humanas aprobadas en el contrato.
+
+Busqueda de Skills:
+  proyecto skill search "etl"
+
+  Busca capacidades existentes antes de crear una Skill nueva.
+  La busqueda muestra NAME y DESCRIPTION de los candidatos encontrados.
+  search es solo descubrimiento: no instala, ejecuta ni incorpora Skills y no modifica proyectos.
 
 Componentes disponibles:
   agents                               Garantiza AGENTS.md y su integracion con CONTEXT.md.
@@ -20,12 +28,17 @@ Componentes disponibles:
 
 Flujo recomendado:
   proyecto valida <proyecto>
-  La primera ejecución puede iniciar automáticamente la entrevista de contexto.
+  La primera ejecucion puede iniciar automaticamente la entrevista de contexto.
 
   Si faltan componentes conocidos:
     proyecto list
     proyecto add <proyecto> <componente>
     proyecto valida <proyecto>
+
+  Si se necesita una capacidad reutilizable:
+    proyecto skill search "<capacidad>"
+    revisar candidatos
+    inspeccionar/evaluar antes de incorporar (roadmap Skill Supply Chain)
 
   Si quedan elementos que requieren adecuacion:
     proyecto prompt <proyecto>
@@ -35,4 +48,3 @@ Flujo recomendado:
 
 Ayuda:
   proyecto -h
-
